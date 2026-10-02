@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Pocket Pet Rock</title>
+  <meta name="description" content="A quirky, deadpan 3D web toy where you adopt, name, and pet a rock with googly eyes.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22 fill=%22none%22 stroke=%22%238e8579%22 stroke-width=%222.5%22 stroke-linejoin=%22round%22><polygon points=%228,24 4,14 11,6 21,6 28,13 25,24%22 fill=%22%23b5aca0%22/></svg>">
+</head>
+<body>
+  <!-- Full-screen WebGL Canvas -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- Fallback message if WebGL is unavailable -->
+  <div id="webgl-fallback" style="display: none;">
+    <h1>Pocket Pet Rock</h1>
+    <p>Your browser or device does not support WebGL. Even a stone cannot materialize in this environment.</p>
+  </div>
+
+  <!-- UI Overlay -->
+  <div id="ui-root">
+    <!-- Top Bar: Editable Name & Stats -->
+    <header class="top-bar">
+      <div class="name-badge-wrapper" title="Click to rename your rock">
+        <input type="text" id="rock-name" class="name-input" maxlength="20" aria-label="Rock name" value="Rocky" spellcheck="false" autocomplete="off">
+        <svg class="name-edit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+        </svg>
+      </div>
+      <div id="stats-line" class="stats-line" aria-live="polite">
+        0 pets <span class="stats-dot">•</span> Together for just now
+      </div>
+    </header>
+
+    <!-- Speech Bubble (Positioned dynamically above rock) -->
+    <div id="speech-bubble" class="speech-bubble" role="status" aria-live="polite">
+      <span id="speech-speaker" class="speech-speaker">Rocky</span>
+      <div id="speech-text" class="speech-text">...</div>
+    </div>
+
+    <!-- Bottom Controls & Hint -->
+    <footer class="bottom-bar">
+      <div class="button-group" role="group" aria-label="Rock interactions">
+        <button id="pet-btn" class="action-btn" type="button">Pet</button>
+        <button id="feed-btn" class="action-btn" type="button">Feed pebble</button>
+        <button id="stare-btn" class="action-btn" type="button">Stare contest</button>
+        <button id="hide-btn" class="action-btn" type="button">Hide</button>
+        <button id="hat-btn" class="action-btn" type="button">Hat</button>
+        <button id="night-btn" class="action-btn" type="button">Night</button>
+      </div>
+      <div class="interaction-hint">
+        Drag to rotate &bull; Tap to pet
+      </div>
+    </footer>
+  </div>
+
+  <!-- Main JavaScript Entry Point -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

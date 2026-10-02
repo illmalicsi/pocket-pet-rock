@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# Production build output
+dist/
+
+# Test screenshots & logs
+test-*.png
+*.log
+
+# OS & Environment
+.DS_Store
+Thumbs.db
+.chrome-profile/
